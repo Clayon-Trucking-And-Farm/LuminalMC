@@ -1,0 +1,18 @@
+ private void button1_Click(object sender, EventArgs e)
+        {
+            string url = "https://raw.githubusercontent.com/username/repository/branch/filename";
+            string destinationPath = @"C:\path\to\save\filename";
+
+            using (WebClient client = new WebClient())
+            {
+                try
+                {
+                    client.DownloadFile(url, destinationPath);
+                    MessageBox.Show("Download completed successfully.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+        }
